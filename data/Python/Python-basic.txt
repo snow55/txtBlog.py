@@ -1,11 +1,39 @@
-python 测试web标签转码
+﻿python 测试web标签转码
 
 
 
 ========================================
-a test
+开启jupyter(on jinlab)
 ----------------------------------------
-<a href="">xxx</a>
+实验室旧服务器上开jupyter：
+jupyter notebook --no-browser --port 10007 --ip=10.20.57.27
+
+临时可使用的jupyter：
+ssh wangjl@y.biomooc.com  p123456
+sftp wangxf@172.18.5.193
+get /home/wangxf/data/projects/CRCprojects/seuratv3_analysis_rawdata/CRCSZ04/CRCSZ04P/CRCSZ04P_count_matratrix.csv
+jupyter: /home/wangjl/.local/bin/jupyter /home/wangjl/anaconda3/bin/jupyter
+
+========================================
+github python package install
+----------------------------------------
+1.首先需查看原github中的说明文件，是否需要编译；
+2.根据具体情况进行下载和编译
+
+  示例：在Linux系统中下载并编译FIt-SNE的python包
+	参考链接：https://github.com/berenslab/rna-seq-tsne
+		  https://github.com/KlugerLab/FIt-SNE
+  fftw：下载地址：ftp://ftp.fftw.org/pub/fftw/fftw-3.3.8.tar.gz
+	安装：https://www.fuwuqizhijia.com/linux/201704/48636.html
+	流程：  wget ftp://ftp.fftw.org/pub/fftw/fftw-3.3.8.tar.gz
+		tar xzf fftw-3.3.8.tar.gz
+	        cd fftw-3.3.8
+	        ./configure
+		make
+		sudo make install
+  编译FIt-SNE:  cd data/Jupyter_notebook/FIt-SNE/
+		g++ -std=c++11 -O3  src/sptree.cpp src/tsne.cpp src/nbodyfft.cpp  -o bin/fast_tsne -pthread -lfftw3 -lm
+
 
 
 ========================================
